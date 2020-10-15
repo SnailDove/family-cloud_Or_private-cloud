@@ -14,12 +14,12 @@
 
 2. 多媒体中心：在线4k高码率硬件解码+推流，客户端随时查看私有云里面的音视频，只要有浏览器和网络均可播放，已具备免费：安卓、ios、windows、Mac客户端。没有网络情况下，局域网内，可推送音视频到任何一台设备；可根据链接、种子远程操控家庭服务器挂载下载任务，一地下载随时随地多设备访问。
 ![](./jellyfin1.jpg)
-![](./jellyfin2.jpg)
-![](./jellyfin3.jpg)
+![](./jellyfin2.png)
+![](./jellyfin3.png)
 ![](./live.jpg)
-![](./jellyfin4.jpg)
-![](./jellyfin5.jpg)
-![](./jellyfin6.jpg)
+![](./jellyfin4.png)
+![](./jellyfin5.png)
+![](./jellyfin6.png)
 
 3. 高性能软路由：OpenWrt、爱快、lede等配合V批N服务，实现高速访问外网，可实时观看油管/Plex 4k60Hz 视频。
 
