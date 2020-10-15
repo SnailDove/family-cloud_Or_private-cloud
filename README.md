@@ -1,6 +1,11 @@
 <h1 align="center">All In One 家庭服务器主机</h1>
 
-结合低功耗x86主机，再借助Unraid虚拟机系统搭建家庭服务器。Unraid概要介绍：[满足所有需求的千元级AIO Nas服务器，实时转码4K H265 10bit](https://www.bilibili.com/video/BV1nE41187fr)，视频第10分钟开始介绍，主要是支持装docker虚拟机和虚拟机硬件直通（支持网卡、核显、独显等），因此可以实现以下功能。
+结合低功耗x86主机，再借助Unraid虚拟机系统搭建家庭服务器。Unraid概要介绍：[满足所有需求的千元级AIO Nas服务器，实时转码4K H265 10bit](https://www.bilibili.com/video/BV1nE41187fr)，视频第10分钟开始介绍，主要是支持装docker容器、虚拟机，unraid上的虚拟机和docker镜像支持硬件直通（支持网卡、声卡、核显、独显等），由于有了硬件直通（物理上的独享），因此虚拟机性能更接近物理机，因此可以实现以下功能。
+
+- unraid支持的常见虚拟机模板如下：
+  ![](./unraid_vms.jpg)
+
+- docker是更轻量化的虚拟机服务，现在主流是作为微服务来应用，从2015年开始在国内爆发。
 
 ## 目标
 
