@@ -35,7 +35,7 @@
 
 ![](./README.assets/qb.jpg)
 
-### nextcloud 开源的私有云
+### NextCloud 开源的私有网盘
 
 ![](README.assets/nextcloud-summary.jpg)
 
