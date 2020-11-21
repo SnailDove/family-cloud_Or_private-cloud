@@ -1,6 +1,6 @@
 <h1 align="center">All In One 家庭服务器主机</h1>
 
-结合低功耗x86主机，再借助Unraid虚拟机系统搭建家庭服务器。Unraid概要介绍：[满足所有需求的千元级AIO Nas服务器，实时转码4K H265 10bit](https://www.bilibili.com/video/BV1nE41187fr)，视频第10分钟开始介绍，主要是支持装docker容器、虚拟机，unraid上的虚拟机和docker镜像支持硬件直通（支持网卡、声卡、核显、独显等），由于有了硬件直通（物理上的独享），因此虚拟机性能更接近物理机。
+结合低功耗x86主机，再借助Unraid虚拟机系统搭建家庭服务器。Unraid概要介绍：[满足所有需求的千元级AIO Nas服务器，实时转码4K H265 10bit](https://www.bilibili.com/video/BV1nE41187fr)，视频第10分钟开始介绍，主要是支持装docker容器、虚拟机，unraid上的虚拟机和docker镜像支持硬件直通（支持网卡、声卡、核显、独显等），由于有了硬件直通（物理上的独享），因此虚拟机性能更接近物理机。硬件配置清单在最后列出！
 
 - unraid支持的常见虚拟机模板如下：
   ![](./unraid_vms.jpg)
@@ -10,26 +10,42 @@
 
 ## 目标
 
-1. 家庭数据中心（DIY NAS）：私有云——大小取决于装了多大硬盘，后期随意升级，上传下载速度取决于你的带宽（目前国内三大运营商手机套餐移动88元/电信联通99~100多元——赠送的宽带下行100Mb/s=12.5MB/s，上行50Mb/s=6.25MB/s），在线网络硬盘可在线编辑，随时同步文档（各种定制化的配置文件，比如：vim）、照片/视频（可自动生成时间线）、私有代码仓库、博客服务器；省去随身携带的u盘、硬盘，以及解决手机电脑存储不够用的麻烦。
+1. **家庭数据中心**私有云（安装部署NextCloud等同类型的docker镜像）——大小取决于装了多大硬盘，后期随意升级，上传下载速度取决于你的带宽（目前国内三大运营商手机套餐移动88元/电信联通99~100多元——赠送的宽带下行100Mb/s=12.5MB/s，上行50Mb/s=6.25MB/s），在线网络硬盘可在线编辑（SMB/NFS协议的分享与挂载），实时同步文档（安装部署Synchthing的docker镜像）、私人网盘（安装部署nextcloud的docker镜像）、私有代码仓库（安装部署gitserver的docker镜像）、博客服务器（安装部署WordPress等等博客镜像）；省去随身携带的u盘、硬盘，以及解决手机电脑存储不够用的麻烦。
+2. **多媒体中心**（安装部署Jellyfin/Emby/Plex的docker镜像）：实时4k高码率硬件解码+推流，客户端（安卓、ios、windows、Mac）随时查看私有云里面的音视频，只要有浏览器和网络均可播放。没有网络情况下，局域网内，可推送音视频到任何一台设备；
+3. **下载器**（安装部署qBittorrent/Aria2/Transmission的docker镜像）可根据链接、种子远程操控家庭服务器挂载下载任务，一地下载随时随地多设备访问。
+4. **高性能软路由**：OpenWrt、爱快、Lede等配合V批N服务，实现高速访问外网，可实时观看油管/Plex 4k60Hz 视频。
+5. **docker hub**集成大家的智慧结晶，里面有各种各样有趣镜像，比如自动备份ICloud的镜像。
+6. 还可以安装**黑苹果**，直通显卡网卡。
+7. 补贴家用：最低收益——辅助充当各大视频网站的CDN收益补贴手机套餐月租（大约几十元），可升级硬盘扩大收益。
 
-2. 多媒体中心：在线4k高码率硬件解码+推流，客户端随时查看私有云里面的音视频，只要有浏览器和网络均可播放，已具备免费：安卓、ios、windows、Mac客户端。没有网络情况下，局域网内，可推送音视频到任何一台设备；可根据链接、种子远程操控家庭服务器挂载下载任务，一地下载随时随地多设备访问。
-
-3. 高性能软路由：OpenWrt、爱快、lede等配合V批N服务，实现高速访问外网，可实时观看油管/Plex 4k60Hz 视频。
-
-4. 补贴家用：最低收益——辅助充当各大视频网站的CDN收益补贴手机套餐月租（大约几十元），可升级硬盘扩大收益。
-
-**注**：前三点不限制用户数，文件夹可设置访问权限。体验取决于同一时间使用的用户数以及带宽的上行速度。由于需要集成显卡，因此不入手二手志强CPU，以及服务器主板。
+**注**：还可以设置多用户多权限管理，体验取决于同一时间使用的用户数以及带宽的上行速度。由于需要**集成显卡**，因此不入手二手志强CPU，以及服务器主板。
 
 ## 图片展示
-![](./jellyfin1.jpg)
-![](.jellyfin7.jpg)
-![](./jellyfin2.png)
-![](./jellyfin3.png)
-![](./live.jpg)
-![](./jellyfin4.png)
-![](./jellyfin5.png)
-![](./jellyfin6.png)
-![](./qb.jpg)
+
+### Jellyfin——从Emby分裂出来的开源多媒体播放器  
+
+![](./README.assets/jellyfin-summary.jpg)
+
+![](./README.assets/jellyfin-movies.jpg)
+![](./README.assets/jellyfin-a_movie_intro.jpg)
+![](./README.assets/jellyfin-LiveTV.jpg)
+![](./README.assets/jellyfin-ACL.png)
+
+### qB共享下载器
+
+![](./README.assets/qb.jpg)
+
+### nextcloud 开源的私有云
+
+![](README.assets/nextcloud-summary.jpg)
+
+#### 设置分享细节
+
+![](README.assets/nextcloud-sharing.jpg)
+
+#### 在线编辑MarkDown文本，直接引用私有云的图片
+
+![](./README.assets/nextcloud-online-editing.jpg)
 
 
 ## 硬件配置
@@ -51,5 +67,5 @@
 
 1. 向运营商申请公网ip
 2. 申请**免费顶级域名** 比如 .tk .ru .mu后缀的域名
-3. 利用阿里云 或者 腾讯云（DNSPod被腾讯收购了）的 api 在Unraid上下载对应DDNS的docker镜像，配置以后实现动态域名解析，阿里在apps搜索aliyun-ddns, 腾讯云搜索dnspod-ddns就能找到对应的ddns服务，不需要花生壳ddns服务和它乱七八糟的域名。
+3. 利用阿里云 或者 腾讯云（DNSPod被腾讯收购了）的 api 在Unraid上下载对应DDNS的docker镜像，配置部署以后**免费实现动态域名解析**，阿里在apps搜索aliyun-ddns, 腾讯云搜索dnspod-ddns就能找到对应的ddns服务，不需要花生壳ddns服务和它乱七八糟的域名。
 
